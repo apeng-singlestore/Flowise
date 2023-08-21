@@ -118,7 +118,10 @@ class SingleStoreUpsert_VectorStores implements INode {
                 port: 3306,
                 user: nodeData.inputs?.user as string,
                 password: nodeData.inputs?.password as string,
-                database: nodeData.inputs?.database as string
+                database: nodeData.inputs?.database as string,
+                connectAttributes: {
+                    program_name: 'flowise'
+                }
             },
             ...(nodeData.inputs?.tableName ? { tableName: nodeData.inputs.tableName as string } : {}),
             ...(nodeData.inputs?.contentColumnName ? { contentColumnName: nodeData.inputs.contentColumnName as string } : {}),
